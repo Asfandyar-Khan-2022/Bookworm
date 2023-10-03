@@ -12,7 +12,8 @@ struct ContentView: View {
     @FetchRequest(sortDescriptors: [
         SortDescriptor(\.title),
         SortDescriptor(\.author)
-    ]) var books: FetchedResults<Book>
+    ])
+    var books: FetchedResults<Book>
     
     @State private var showingAddScreen = false
     
@@ -36,6 +37,7 @@ struct ContentView: View {
                             }
                         }
                     }
+                    .listRowBackground((book.rating == 1) ? .red : Color(UIColor.systemBackground))
                 }
                 .onDelete(perform: deleteBooks(at:))
             }
